@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import useRecipeStore from '../store/recipeStore'
+import React, { useState } from 'react';
+import useRecipeStore from '../store/recipeStore';
 
 const EditRecipeForm = ({ recipe }) => {
   const [isEditing, setIsEditing] = useState(false)
@@ -8,7 +8,7 @@ const EditRecipeForm = ({ recipe }) => {
   const updateRecipe = useRecipeStore(state => state.updateRecipe)
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    event.preventDefault(); 
     if (title.trim() && description.trim()) {
       updateRecipe({
         ...recipe,
