@@ -30,6 +30,17 @@ const RecipeDetails = () => {
       <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
       <p className="text-gray-700 mb-6">{recipe.description}</p>
       
+      {recipe.ingredients && recipe.ingredients.length > 0 && (
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold mb-2">Ingredients</h2>
+          <ul className="list-disc list-inside">
+            {recipe.ingredients.map((ingredient, index) => (
+              <li key={index} className="text-gray-700">{ingredient}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+      
       <div className="border-t pt-4">
         <h2 className="text-xl font-semibold mb-4">Actions</h2>
         <div className="space-y-2">
