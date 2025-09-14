@@ -9,6 +9,8 @@ const RecipeDetails = () => {
   const recipe = useRecipeStore(state =>
     state.recipes.find(recipe => recipe.id === recipeId)
   )
+  const toggleFavorite = useRecipeStore(state => state.toggleFavorite)
+  const isFavorite = useRecipeStore(state => state.isFavorite(recipeId))
 
   if (!recipe) {
     return (
@@ -27,7 +29,21 @@ const RecipeDetails = () => {
         ← Back to Home
       </Link>
       
-      <h1 className="text-3xl font-bold mb-4">{recipe.title}</h1>
+      <div className="flex justify-between items-start mb-4">
+        <h1 className="text-3xl font-bold">{recipe.title}</h1>
+        <button
+          onClick={() => toggleFavorite(recipe.id)}
+          className={`p-2 rounded-full ${
+            isFavorite 
+              ? 'bg-red-500 text-white' 
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+          title={isFavorite ? "Remove from favorites" : "Add to favorites"}
+        >
+          {isFavorite ? '♥' : '♡'}
+        </button>
+      </div>
+      
       <p className="text-gray-700 mb-6">{recipe.description}</p>
       
       {recipe.ingredients && recipe.ingredients.length > 0 && (

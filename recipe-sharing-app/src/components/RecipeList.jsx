@@ -4,6 +4,8 @@ import useRecipeStore from '../store/recipeStore'
 const RecipeList = () => {
   const filteredRecipes = useRecipeStore((state) => state.filteredRecipes)
   const searchTerm = useRecipeStore((state) => state.searchTerm)
+  const toggleFavorite = useRecipeStore(state => state.toggleFavorite)
+  const isFavorite = useRecipeStore(state => state.isFavorite)
 
   return (
     <div className="recipe-list">
@@ -27,12 +29,25 @@ const RecipeList = () => {
           
           {filteredRecipes.map((recipe) => (
             <div key={recipe.id} className="p-4 border rounded hover:shadow-md transition-shadow">
-              <Link to={`/recipe/${recipe.id}`} className="block">
-                <h3 className="text-xl font-semibold text-blue-600 hover:text-blue-800">
-                  {recipe.title}
-                </h3>
-                <p className="text-gray-600 mt-2 line-clamp-2">{recipe.description}</p>
-              </Link>
+              <div className="flex justify-between items-start">
+                <Link to={`/recipe/${recipe.id}`} className="block flex-1">
+                  <h3 className="text-xl font-semibold text-blue-600 hover:text-blue-800">
+                    {recipe.title}
+                  </h3>
+                  <p className="text-gray-600 mt-2 line-clamp-2">{recipe.description}</p>
+                </Link>
+                <button
+                  onClick={() => toggleFavorite(recipe.id)}
+                  className={`ml-4 p-2 rounded-full ${
+                    isFavorite(recipe.id)
+                      ? 'bg-red-500 text-white' 
+                      : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }`}
+                  title={isFavorite(recipe.id) ? "Remove from favorites" : "Add to favorites"}
+                >
+                  {isFavorite(recipe.id) ? '♥' : '♡'}
+                </button>
+              </div>
               <div className="mt-2 text-sm text-gray-500">
                 ID: {recipe.id}
               </div>
