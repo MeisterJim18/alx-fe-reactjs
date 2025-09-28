@@ -1,6 +1,9 @@
+import { useState } from 'react'
+import './App.css'
+
 function App() {
   return (
-    <div>
+    <div className="App">
       <h1>🔍 GitHub User Search</h1>
       <p>Application is ready! 🎉</p>
       <div style={{
@@ -14,6 +17,7 @@ function App() {
           <li>✅ Project created</li>
           <li>✅ .env file created</li>
           <li>✅ Structure ready</li>
+          <li>✅ Import statements added</li>
         </ul>
       </div>
     </div>
