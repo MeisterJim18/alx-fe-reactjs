@@ -4,7 +4,7 @@ function UserProfile() {
       <img 
         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face" 
         alt="User" 
-        className="rounded-full w-24 h-24 md:w-36 md:h-36 mx-auto border-2 border-white shadow-md"
+        className="rounded-full w-24 h-24 sm:w-24 sm:h-24 md:w-36 md:h-36 mx-auto border-2 border-white shadow-md"
       />
       <h1 className="text-lg md:text-xl text-blue-800 my-4 text-center font-semibold">
         John Doe
