@@ -20,7 +20,7 @@ const AddRecipeForm = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handle input changes
+  // Handle input changes - FIXED: Properly using e.target.value
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
