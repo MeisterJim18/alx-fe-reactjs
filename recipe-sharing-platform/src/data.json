@@ -3,36 +3,191 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/400x300/FF6B6B/FFFFFF?text=Spaghetti+Carbonara"
+    "image": "https://via.placeholder.com/800x400/FF6B6B/FFFFFF?text=Spaghetti+Carbonara",
+    "prepTime": "15 mins",
+    "cookTime": "15 mins",
+    "servings": 4,
+    "difficulty": "Easy",
+    "ingredients": [
+      "400g spaghetti",
+      "200g pancetta or guanciale, diced",
+      "4 large eggs",
+      "100g Pecorino Romano cheese, grated",
+      "50g Parmesan cheese, grated",
+      "2 cloves garlic, minced",
+      "Freshly ground black pepper",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Bring a large pot of salted water to boil and cook spaghetti according to package instructions.",
+      "While pasta cooks, heat a large pan over medium heat and cook pancetta until crispy.",
+      "In a bowl, whisk together eggs, grated cheeses, and plenty of black pepper.",
+      "Reserve 1 cup of pasta water before draining spaghetti.",
+      "Add hot spaghetti to the pancetta pan, remove from heat.",
+      "Quickly mix in egg and cheese mixture, adding pasta water as needed to create a creamy sauce.",
+      "Serve immediately with extra cheese and black pepper."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/400x300/4ECDC4/FFFFFF?text=Chicken+Tikka"
+    "image": "https://via.placeholder.com/800x400/4ECDC4/FFFFFF?text=Chicken+Tikka+Masala",
+    "prepTime": "30 mins",
+    "cookTime": "40 mins",
+    "servings": 6,
+    "difficulty": "Medium",
+    "ingredients": [
+      "500g chicken breast, cubed",
+      "200ml yogurt",
+      "2 tbsp lemon juice",
+      "2 tsp garam masala",
+      "1 onion, finely chopped",
+      "3 cloves garlic, minced",
+      "1 tbsp ginger, grated",
+      "400g tomato puree",
+      "200ml heavy cream",
+      "2 tbsp vegetable oil",
+      "1 tsp turmeric",
+      "1 tsp cumin",
+      "1 tsp paprika",
+      "Salt to taste",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt, lemon juice, and 1 tsp garam masala for at least 2 hours.",
+      "Heat oil in a large pan and cook chicken until browned. Remove and set aside.",
+      "In the same pan, sauté onions until golden, then add garlic and ginger.",
+      "Add tomato puree and spices, cook for 10 minutes until oil separates.",
+      "Return chicken to pan, add cream, and simmer for 15 minutes.",
+      "Garnish with fresh cilantro and serve with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Vegetable Stir Fry",
     "summary": "Fresh vegetables quickly cooked in a wok with soy sauce and ginger.",
-    "image": "https://via.placeholder.com/400x300/45B7D1/FFFFFF?text=Veg+Stir+Fry"
+    "image": "https://via.placeholder.com/800x400/45B7D1/FFFFFF?text=Vegetable+Stir+Fry",
+    "prepTime": "20 mins",
+    "cookTime": "10 mins",
+    "servings": 4,
+    "difficulty": "Easy",
+    "ingredients": [
+      "2 bell peppers, sliced",
+      "2 carrots, julienned",
+      "1 broccoli, cut into florets",
+      "1 cup snow peas",
+      "2 cloves garlic, minced",
+      "1 tbsp ginger, grated",
+      "3 tbsp soy sauce",
+      "1 tbsp sesame oil",
+      "1 tbsp vegetable oil",
+      "1 tsp cornstarch",
+      "2 tbsp water",
+      "Sesame seeds for garnish"
+    ],
+    "instructions": [
+      "Mix cornstarch with water to create a slurry.",
+      "Heat vegetable oil in a wok over high heat.",
+      "Add garlic and ginger, stir for 30 seconds.",
+      "Add harder vegetables first (carrots, broccoli), cook for 3 minutes.",
+      "Add remaining vegetables and cook for 2 more minutes.",
+      "Add soy sauce and sesame oil, then the cornstarch slurry.",
+      "Stir until sauce thickens, garnish with sesame seeds."
+    ]
   },
   {
     "id": 4,
     "title": "Chocolate Chip Cookies",
     "summary": "Classic homemade cookies with melted chocolate chips and crispy edges.",
-    "image": "https://via.placeholder.com/400x300/F7DC6F/000000?text=Chocolate+Cookies"
+    "image": "https://via.placeholder.com/800x400/F7DC6F/000000?text=Chocolate+Chip+Cookies",
+    "prepTime": "15 mins",
+    "cookTime": "12 mins",
+    "servings": 24,
+    "difficulty": "Easy",
+    "ingredients": [
+      "225g all-purpose flour",
+      "1/2 tsp baking soda",
+      "170g butter, melted",
+      "200g brown sugar",
+      "100g white sugar",
+      "1 tbsp vanilla extract",
+      "1 egg",
+      "1 egg yolk",
+      "300g chocolate chips",
+      "1/2 tsp salt"
+    ],
+    "instructions": [
+      "Preheat oven to 165°C (325°F) and line baking sheets with parchment paper.",
+      "Mix flour, baking soda, and salt in a bowl.",
+      "In another bowl, cream together melted butter and sugars.",
+      "Beat in vanilla, egg, and egg yolk until light and creamy.",
+      "Mix in flour mixture until just blended.",
+      "Stir in chocolate chips by hand.",
+      "Drop cookie dough onto prepared baking sheets.",
+      "Bake for 12-15 minutes until edges are lightly browned.",
+      "Cool on baking sheet for 5 minutes before transferring to wire rack."
+    ]
   },
   {
     "id": 5,
     "title": "Beef Tacos",
     "summary": "Crispy taco shells filled with seasoned ground beef and fresh toppings.",
-    "image": "https://via.placeholder.com/400x300/BB8FCE/FFFFFF?text=Beef+Tacos"
+    "image": "https://via.placeholder.com/800x400/BB8FCE/FFFFFF?text=Beef+Tacos",
+    "prepTime": "20 mins",
+    "cookTime": "15 mins",
+    "servings": 8,
+    "difficulty": "Easy",
+    "ingredients": [
+      "500g ground beef",
+      "1 packet taco seasoning",
+      "8 taco shells",
+      "1 cup lettuce, shredded",
+      "1 tomato, diced",
+      "1 cup cheddar cheese, shredded",
+      "1/2 cup sour cream",
+      "1/2 cup salsa",
+      "1 onion, diced",
+      "2 tbsp olive oil"
+    ],
+    "instructions": [
+      "Heat olive oil in a pan and cook onions until translucent.",
+      "Add ground beef and cook until browned, breaking it up with a spoon.",
+      "Add taco seasoning and water according to packet instructions.",
+      "Simmer for 10 minutes until sauce thickens.",
+      "Heat taco shells according to package directions.",
+      "Fill shells with beef mixture and top with desired toppings.",
+      "Serve immediately with sour cream and salsa."
+    ]
   },
   {
     "id": 6,
     "title": "Greek Salad",
     "summary": "Fresh salad with tomatoes, cucumbers, olives, and feta cheese.",
-    "image": "https://via.placeholder.com/400x300/52BE80/FFFFFF?text=Greek+Salad"
+    "image": "https://via.placeholder.com/800x400/52BE80/FFFFFF?text=Greek+Salad",
+    "prepTime": "15 mins",
+    "cookTime": "0 mins",
+    "servings": 4,
+    "difficulty": "Easy",
+    "ingredients": [
+      "4 large tomatoes, chopped",
+      "1 cucumber, sliced",
+      "1 red onion, thinly sliced",
+      "1 green bell pepper, chopped",
+      "200g feta cheese, cubed",
+      "100g Kalamata olives",
+      "2 tbsp extra virgin olive oil",
+      "1 tbsp red wine vinegar",
+      "1 tsp dried oregano",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Combine tomatoes, cucumber, onion, and bell pepper in a large bowl.",
+      "Add olives and feta cheese.",
+      "In a small bowl, whisk together olive oil, vinegar, oregano, salt, and pepper.",
+      "Pour dressing over salad and toss gently.",
+      "Let sit for 10 minutes before serving to allow flavors to meld.",
+      "Serve as a refreshing side dish or light meal."
+    ]
   }
 ]
