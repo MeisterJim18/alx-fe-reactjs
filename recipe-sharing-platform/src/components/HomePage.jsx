@@ -12,15 +12,24 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="container mx-auto px-4">
-        {/* Header Section */}
+        {/* Header Section with Add Recipe button */}
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
             Delicious Recipes
           </h1>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
             Discover and share amazing recipes from around the world. 
             Find your next favorite dish!
           </p>
+          <Link 
+            to="/add-recipe"
+            className="inline-flex items-center bg-green-500 hover:bg-green-600 text-white font-medium py-3 px-6 rounded-lg transition duration-200"
+          >
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+            </svg>
+            Add New Recipe
+          </Link>
         </div>
 
         {/* Recipes Grid */}
@@ -71,6 +80,12 @@ const HomePage = () => {
         {recipes.length === 0 && (
           <div className="text-center py-12">
             <p className="text-gray-500 text-lg">No recipes found.</p>
+            <Link 
+              to="/add-recipe"
+              className="inline-block mt-4 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition duration-200"
+            >
+              Add the First Recipe
+            </Link>
           </div>
         )}
       </div>
