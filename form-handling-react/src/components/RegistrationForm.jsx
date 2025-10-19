@@ -1,48 +1,53 @@
 import { useState } from 'react';
 
 const RegistrationForm = () => {
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
+  // Créer des states séparés pour chaque champ
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    if (errors.username) {
+      setErrors(prev => ({ ...prev, username: '' }));
+    }
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    if (errors.email) {
+      setErrors(prev => ({ ...prev, email: '' }));
+    }
+  };
+
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    if (errors.password) {
+      setErrors(prev => ({ ...prev, password: '' }));
     }
   };
 
   const validateForm = () => {
     const newErrors = {};
 
-    if (!formData.username.trim()) {
+    if (!username.trim()) {
       newErrors.username = "Username is required";
-    } else if (formData.username.length < 3) {
+    } else if (username.length < 3) {
       newErrors.username = "Username must be at least 3 characters";
     }
 
-    if (!formData.email.trim()) {
+    if (!email.trim()) {
       newErrors.email = "Email is required";
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Email is invalid";
     }
 
-    if (!formData.password) {
+    if (!password) {
       newErrors.password = "Password is required";
-    } else if (formData.password.length < 6) {
+    } else if (password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
     }
 
@@ -61,6 +66,8 @@ const RegistrationForm = () => {
     setIsSubmitting(true);
 
     try {
+      const formData = { username, email, password };
+      
       const response = await fetch('https://jsonplaceholder.typicode.com/users', {
         method: 'POST',
         headers: {
@@ -74,11 +81,10 @@ const RegistrationForm = () => {
         console.log('Registration successful:', result);
         alert('Registration successful!');
         
-        setFormData({
-          username: '',
-          email: '',
-          password: ''
-        });
+        // Reset form
+        setUsername('');
+        setEmail('');
+        setPassword('');
       } else {
         throw new Error('Registration failed');
       }
@@ -100,8 +106,8 @@ const RegistrationForm = () => {
             type="text"
             id="username"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={username}
+            onChange={handleUsernameChange}
             style={{ 
               width: '100%', 
               padding: '8px', 
@@ -120,8 +126,8 @@ const RegistrationForm = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={handleEmailChange}
             style={{ 
               width: '100%', 
               padding: '8px', 
@@ -140,8 +146,8 @@ const RegistrationForm = () => {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={handlePasswordChange}
             style={{ 
               width: '100%', 
               padding: '8px', 
