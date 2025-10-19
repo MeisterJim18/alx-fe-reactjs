@@ -2,7 +2,7 @@ import { useParams, Link } from 'react-router-dom'
 import './Pages.css'
 
 const BlogPost = () => {
-  const { postId } = useParams()
+  const { id } = useParams() // ← Maintenant on utilise id au lieu de postId
 
   const posts = {
     1: {
@@ -25,7 +25,7 @@ const BlogPost = () => {
     }
   }
 
-  const post = posts[postId]
+  const post = posts[id] // ← Utilise id pour récupérer le post
 
   if (!post) {
     return (
@@ -49,7 +49,7 @@ const BlogPost = () => {
         </div>
         <div className="post-content">
           <p>{post.content}</p>
-          <p>Ceci est un exemple de contenu pour l'article {postId}. Dans une application réelle, ce contenu serait récupéré depuis une base de données ou une API.</p>
+          <p>Ceci est un exemple de contenu pour l'article {id}. Dans une application réelle, ce contenu serait récupéré depuis une base de données ou une API.</p>
         </div>
       </article>
     </div>

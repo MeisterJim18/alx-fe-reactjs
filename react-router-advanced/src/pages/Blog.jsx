@@ -18,7 +18,7 @@ const Blog = () => {
           <div key={post.id} className="blog-card">
             <h3>{post.title}</h3>
             <p>{post.excerpt}</p>
-            <Link to={`/blog/${post.id}`} className="read-more">
+            <Link to={`/blog/${post.id}`} className="read-more"> {/* ← Utilise :id */}
               Lire la suite →
             </Link>
           </div>

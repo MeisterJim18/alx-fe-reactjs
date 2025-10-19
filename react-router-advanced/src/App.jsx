@@ -3,11 +3,11 @@ import { AuthProvider } from './context/AuthContext'
 import Navbar from './components/Navbar'
 import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
-import About from './pages/About'
-import Login from './pages/Login'
-import Profile from './components/Profile'  // ← Modifié ici
-import Blog from './pages/Blog'
-import BlogPost from './pages/BlogPost'
+import About from '/pages/About'
+import Login from '/pages/Login'
+import Profile from '/components/Profile'
+import Blog from '/pages/Blog'
+import BlogPost from '/pages/BlogPost'
 import './App.css'
 
 function App() {
@@ -23,14 +23,14 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:postId" element={<BlogPost />} />
+              <Route path="/blog/:id" element={<BlogPost />} /> {/* ← Corrigé ici : /blog/:id */}
               
-              {/* Route protégée avec routes imbriquées */}
+              {/* Route protégée */}
               <Route 
                 path="/profile/*" 
                 element={
                   <ProtectedRoute>
-                    <Profile />  {/* ← Utilise le composant Profile de components */}
+                    <Profile />
                   </ProtectedRoute>
                 } 
               />
