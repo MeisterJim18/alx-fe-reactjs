@@ -24,7 +24,9 @@ const PostsComponent = () => {
     queryKey: ['posts'],
     queryFn: fetchPosts,
     staleTime: 5000,
-    refetchOnWindowFocus: false
+    cacheTime: 1000 * 60 * 5, 
+    refetchOnWindowFocus: false,
+    keepPreviousData: true 
   })
 
   const togglePosts = () => {
@@ -84,6 +86,8 @@ const PostsComponent = () => {
             <p>
               💡 <strong>Test de cache :</strong> Masquez les posts puis réaffichez-les. 
               Les données se chargent instantanément depuis le cache !
+              <br />
+              <strong>cacheTime:</strong> 5 minutes | <strong>keepPreviousData:</strong> true
             </p>
           </div>
         </div>
