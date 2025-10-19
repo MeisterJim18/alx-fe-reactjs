@@ -1,42 +1,57 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
-import { describe, test, expect } from 'vitest'
 import TodoList from '../components/TodoList'
 
-describe('TodoList', () => {
-  test('renders initial todos', () => {
-    render(<TodoList />)
-    expect(screen.getByText('Learn React')).toBeInTheDocument()
-    expect(screen.getByText('Build Todo App')).toBeInTheDocument()
-  })
+// Test 1: Vérifier le rendu initial
+test('renders initial todos correctly', () => {
+  render(<TodoList />)
+  
+  // Vérifier que les todos initiaux sont affichés
+  expect(screen.getByText('Learn React')).toBeInTheDocument()
+  expect(screen.getByText('Build Todo App')).toBeInTheDocument()
+})
 
-  test('adds new todo', async () => {
-    const user = userEvent.setup()
-    render(<TodoList />)
-    
-    await user.type(screen.getByPlaceholderText('Add a new todo'), 'New Task')
-    await user.click(screen.getByText('Add Todo'))
-    
-    expect(screen.getByText('New Task')).toBeInTheDocument()
-  })
+// Test 2: Ajouter un nouveau todo
+test('adds a new todo when form is submitted', async () => {
+  const user = userEvent.setup()
+  render(<TodoList />)
+  
+  // Trouver l'input et le bouton
+  const input = screen.getByPlaceholderText('Add a new todo')
+  const addButton = screen.getByText('Add Todo')
+  
+  // Simuler la saisie utilisateur
+  await user.type(input, 'New Test Todo')
+  await user.click(addButton)
+  
+  // Vérifier que le nouveau todo est ajouté
+  expect(screen.getByText('New Test Todo')).toBeInTheDocument()
+})
 
-  test('toggles todo completion', async () => {
-    const user = userEvent.setup()
-    render(<TodoList />)
-    
-    const todo = screen.getByText('Learn React')
-    await user.click(todo)
-    
-    expect(todo).toHaveStyle('text-decoration: line-through')
-  })
+// Test 3: Basculer l'état d'un todo
+test('toggles todo completion status when clicked', async () => {
+  const user = userEvent.setup()
+  render(<TodoList />)
+  
+  const todoText = screen.getByText('Learn React')
+  
+  // Cliquer sur le todo pour le basculer
+  await user.click(todoText)
+  
+  // Vérifier que le style a changé
+  expect(todoText).toHaveStyle('text-decoration: line-through')
+})
 
-  test('deletes todo', async () => {
-    const user = userEvent.setup()
-    render(<TodoList />)
-    
-    const deleteButtons = screen.getAllByText('Delete')
-    await user.click(deleteButtons[0])
-    
-    expect(screen.queryByText('Learn React')).not.toBeInTheDocument()
-  })
+// Test 4: Supprimer un todo
+test('deletes a todo when delete button is clicked', async () => {
+  const user = userEvent.setup()
+  render(<TodoList />)
+  
+  const deleteButtons = screen.getAllByText('Delete')
+  
+  // Cliquer sur le premier bouton delete
+  await user.click(deleteButtons[0])
+  
+  // Vérifier que le todo a été supprimé
+  expect(screen.queryByText('Learn React')).not.toBeInTheDocument()
 })
