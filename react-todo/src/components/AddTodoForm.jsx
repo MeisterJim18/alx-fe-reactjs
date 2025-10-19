@@ -12,18 +12,16 @@ const AddTodoForm = ({ onAddTodo }) => {
 
   return (
     <form onSubmit={handleSubmit} className="add-todo-form">
-      <div className="input-group">
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Quelle est votre prochaine tâche ?"
-          className="todo-input"
-        />
-        <button type="submit" className="add-button">
-          Ajouter
-        </button>
-      </div>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        placeholder="Ajouter une nouvelle tâche"
+        className="todo-input"
+      />
+      <button type="submit" className="add-button">
+        Ajouter
+      </button>
     </form>
   )
 }

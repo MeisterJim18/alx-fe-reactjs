@@ -1,0 +1,26 @@
+.todo-list {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.todos-container {
+  margin: 20px 0;
+}
+
+.no-todos {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+}
+
+.todos-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-stats {
+  text-align: center;
+  color: #666;
+  margin-top: 20px;
+}

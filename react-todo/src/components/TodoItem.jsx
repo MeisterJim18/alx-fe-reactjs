@@ -6,17 +6,14 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
       <span 
         className="todo-text"
         onClick={() => onToggle(todo.id)}
-        data-testid="todo-text"
       >
         {todo.text}
       </span>
       
       <div className="todo-actions">
         <button 
-          className={`toggle-button ${todo.completed ? 'completed' : ''}`}
+          className="toggle-button"
           onClick={() => onToggle(todo.id)}
-          aria-label={todo.completed ? 'Marquer comme non terminée' : 'Marquer comme terminée'}
-          data-testid="toggle-button"
         >
           {todo.completed ? '✓' : '○'}
         </button>
@@ -24,8 +21,6 @@ const TodoItem = ({ todo, onToggle, onDelete }) => {
         <button 
           className="delete-button"
           onClick={() => onDelete(todo.id)}
-          aria-label="Supprimer la tâche"
-          data-testid="delete-button"
         >
           ×
         </button>

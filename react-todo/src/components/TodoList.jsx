@@ -7,7 +7,7 @@ const TodoList = () => {
   const [todos, setTodos] = useState([
     { id: 1, text: 'Apprendre React', completed: true },
     { id: 2, text: 'Créer une Todo List', completed: false },
-    { id: 3, text: 'Tester avec Vitest', completed: false }
+    { id: 3, text: 'Tester avec Jest', completed: false }
   ])
 
   const addTodo = (text) => {
@@ -31,15 +31,13 @@ const TodoList = () => {
     setTodos(todos.filter(todo => todo.id !== id))
   }
 
-  const completedCount = todos.filter(todo => todo.completed).length
-
   return (
     <div className="todo-list">
       <AddTodoForm onAddTodo={addTodo} />
       
       <div className="todos-container">
         {todos.length === 0 ? (
-          <p className="no-todos">Aucune tâche pour le moment. Ajoutez-en une !</p>
+          <p className="no-todos">Aucune tâche pour le moment.</p>
         ) : (
           <ul className="todos-list">
             {todos.map(todo => (
@@ -55,7 +53,7 @@ const TodoList = () => {
       </div>
       
       <div className="todo-stats">
-        <p>Total: {todos.length} | Complétées: {completedCount}</p>
+        <p>Total: {todos.length} | Complétées: {todos.filter(t => t.completed).length}</p>
       </div>
     </div>
   )
