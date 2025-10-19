@@ -1,0 +1,23 @@
+.App {
+  font-family: Arial, sans-serif;
+}
+
+/* Style for error fields */
+.error-field {
+  border: 1px solid red !important;
+}
+
+/* Form styling */
+form {
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Label styling */
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
