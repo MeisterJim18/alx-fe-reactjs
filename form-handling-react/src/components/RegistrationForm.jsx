@@ -1,19 +1,15 @@
 import { useState } from 'react';
 
 const RegistrationForm = () => {
-  // State for form data
   const [formData, setFormData] = useState({
     username: '',
     email: '',
     password: ''
   });
   
-  // State for validation errors
   const [errors, setErrors] = useState({});
-  // State for submission loading
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -21,7 +17,6 @@ const RegistrationForm = () => {
       [name]: value
     }));
     
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({
         ...prev,
@@ -30,25 +25,21 @@ const RegistrationForm = () => {
     }
   };
 
-  // Form validation function
   const validateForm = () => {
     const newErrors = {};
 
-    // Username validation
     if (!formData.username.trim()) {
       newErrors.username = "Username is required";
     } else if (formData.username.length < 3) {
       newErrors.username = "Username must be at least 3 characters";
     }
 
-    // Email validation
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = "Email is invalid";
     }
 
-    // Password validation
     if (!formData.password) {
       newErrors.password = "Password is required";
     } else if (formData.password.length < 6) {
@@ -58,11 +49,9 @@ const RegistrationForm = () => {
     return newErrors;
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
     
-    // Validate form before submission
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
@@ -72,7 +61,6 @@ const RegistrationForm = () => {
     setIsSubmitting(true);
 
     try {
-      // Mock API call to JSONPlaceholder
       const response = await fetch('https://jsonplaceholder.typicode.com/users', {
         method: 'POST',
         headers: {
@@ -86,7 +74,6 @@ const RegistrationForm = () => {
         console.log('Registration successful:', result);
         alert('Registration successful!');
         
-        // Reset form after successful submission
         setFormData({
           username: '',
           email: '',
@@ -107,7 +94,6 @@ const RegistrationForm = () => {
     <div style={{ maxWidth: '400px', margin: '50px auto', padding: '20px' }}>
       <h2>Registration (Controlled Components)</h2>
       <form onSubmit={handleSubmit}>
-        {/* Username field */}
         <div style={{ marginBottom: '15px' }}>
           <label htmlFor="username">Username:</label>
           <input
@@ -128,7 +114,6 @@ const RegistrationForm = () => {
           )}
         </div>
 
-        {/* Email field */}
         <div style={{ marginBottom: '15px' }}>
           <label htmlFor="email">Email:</label>
           <input
@@ -149,7 +134,6 @@ const RegistrationForm = () => {
           )}
         </div>
 
-        {/* Password field */}
         <div style={{ marginBottom: '15px' }}>
           <label htmlFor="password">Password:</label>
           <input
@@ -170,7 +154,6 @@ const RegistrationForm = () => {
           )}
         </div>
 
-        {/* Submit button */}
         <button 
           type="submit" 
           disabled={isSubmitting}
