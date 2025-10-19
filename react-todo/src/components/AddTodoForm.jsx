@@ -1,14 +1,15 @@
-import { useState } from 'react'
-import './AddTodoForm.css'
+import React, { useState } from 'react';
 
 const AddTodoForm = ({ onAddTodo }) => {
-  const [inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    onAddTodo(inputValue)
-    setInputValue('')
-  }
+    e.preventDefault();
+    if (inputValue.trim()) {
+      onAddTodo(inputValue.trim());
+      setInputValue('');
+    }
+  };
 
   return (
     <form onSubmit={handleSubmit} className="add-todo-form">
@@ -16,14 +17,14 @@ const AddTodoForm = ({ onAddTodo }) => {
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Ajouter une nouvelle tâche"
+        placeholder="Add a new todo..."
         className="todo-input"
       />
       <button type="submit" className="add-button">
-        Ajouter
+        Add Todo
       </button>
     </form>
-  )
-}
+  );
+};
 
-export default AddTodoForm
+export default AddTodoForm;

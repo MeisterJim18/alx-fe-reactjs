@@ -1,32 +1,23 @@
-import './TodoItem.css'
+import React from 'react';
 
 const TodoItem = ({ todo, onToggle, onDelete }) => {
   return (
-    <li className={`todo-item ${todo.completed ? 'completed' : ''}`}>
-      <span 
+    <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+      <span
         className="todo-text"
         onClick={() => onToggle(todo.id)}
+        style={{ textDecoration: todo.completed ? 'line-through' : 'none' }}
       >
         {todo.text}
       </span>
-      
-      <div className="todo-actions">
-        <button 
-          className="toggle-button"
-          onClick={() => onToggle(todo.id)}
-        >
-          {todo.completed ? '✓' : '○'}
-        </button>
-        
-        <button 
-          className="delete-button"
-          onClick={() => onDelete(todo.id)}
-        >
-          ×
-        </button>
-      </div>
-    </li>
-  )
-}
+      <button
+        className="delete-button"
+        onClick={() => onDelete(todo.id)}
+      >
+        Delete
+      </button>
+    </div>
+  );
+};
 
-export default TodoItem
+export default TodoItem;
