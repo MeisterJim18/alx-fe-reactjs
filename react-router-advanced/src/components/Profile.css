@@ -1,0 +1,44 @@
+.profile-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.profile-nav {
+  display: flex;
+  gap: 1rem;
+  margin: 2rem 0;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 1rem;
+}
+
+.nav-link {
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  color: #666;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  font-weight: 500;
+}
+
+.nav-link:hover {
+  background-color: #f8f9fa;
+  color: #3498db;
+  border-color: #3498db;
+}
+
+.nav-link.active {
+  background-color: #3498db;
+  color: white;
+  border-color: #3498db;
+}
+
+.profile-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e0e0e0;
+  min-height: 300px;
+}

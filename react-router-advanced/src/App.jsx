@@ -5,7 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute'
 import Home from './pages/Home'
 import About from './pages/About'
 import Login from './pages/Login'
-import Profile from './pages/Profile'
+import Profile from './components/Profile'  // ← Modifié ici
 import Blog from './pages/Blog'
 import BlogPost from './pages/BlogPost'
 import './App.css'
@@ -25,12 +25,12 @@ function App() {
               <Route path="/blog" element={<Blog />} />
               <Route path="/blog/:postId" element={<BlogPost />} />
               
-              {/* Route protégée */}
+              {/* Route protégée avec routes imbriquées */}
               <Route 
                 path="/profile/*" 
                 element={
                   <ProtectedRoute>
-                    <Profile />
+                    <Profile />  {/* ← Utilise le composant Profile de components */}
                   </ProtectedRoute>
                 } 
               />
