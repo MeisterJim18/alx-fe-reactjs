@@ -1,28 +1,26 @@
 import { useState } from 'react'
-import AddTodoForm from './AddTodoForm'
-import TodoItem from './TodoItem'
-import './TodoList.css'
 
 const TodoList = () => {
   const [todos, setTodos] = useState([
-    { id: 1, text: 'Apprendre React', completed: true },
-    { id: 2, text: 'Créer une Todo List', completed: false },
-    { id: 3, text: 'Tester avec Jest', completed: false }
+    { id: 1, text: 'Learn React', completed: false },
+    { id: 2, text: 'Build Todo App', completed: false }
   ])
+  const [inputValue, setInputValue] = useState('')
 
-  const addTodo = (text) => {
-    if (text.trim()) {
+  const addTodo = () => {
+    if (inputValue.trim()) {
       const newTodo = {
         id: Date.now(),
-        text: text.trim(),
+        text: inputValue,
         completed: false
       }
       setTodos([...todos, newTodo])
+      setInputValue('')
     }
   }
 
   const toggleTodo = (id) => {
-    setTodos(todos.map(todo =>
+    setTodos(todos.map(todo => 
       todo.id === id ? { ...todo, completed: !todo.completed } : todo
     ))
   }
@@ -32,29 +30,31 @@ const TodoList = () => {
   }
 
   return (
-    <div className="todo-list">
-      <AddTodoForm onAddTodo={addTodo} />
-      
-      <div className="todos-container">
-        {todos.length === 0 ? (
-          <p className="no-todos">Aucune tâche pour le moment.</p>
-        ) : (
-          <ul className="todos-list">
-            {todos.map(todo => (
-              <TodoItem
-                key={todo.id}
-                todo={todo}
-                onToggle={toggleTodo}
-                onDelete={deleteTodo}
-              />
-            ))}
-          </ul>
-        )}
+    <div>
+      <div>
+        <input
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Add a new todo"
+        />
+        <button onClick={addTodo}>Add Todo</button>
       </div>
       
-      <div className="todo-stats">
-        <p>Total: {todos.length} | Complétées: {todos.filter(t => t.completed).length}</p>
-      </div>
+      <ul>
+        {todos.map(todo => (
+          <li key={todo.id} style={{ 
+            textDecoration: todo.completed ? 'line-through' : 'none',
+            cursor: 'pointer'
+          }}>
+            <span onClick={() => toggleTodo(todo.id)}>
+              {todo.text}
+            </span>
+            <button onClick={() => deleteTodo(todo.id)} style={{ marginLeft: '10px' }}>
+              Delete
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   )
 }
