@@ -32,6 +32,7 @@
   background-color: #e9ecef;
 }
 
+/* Style pour le texte barré quand completed */
 .todo-item.completed .todo-text {
   text-decoration: line-through;
   color: #666;

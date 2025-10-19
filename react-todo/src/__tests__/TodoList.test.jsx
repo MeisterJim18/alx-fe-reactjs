@@ -45,12 +45,15 @@ describe('TodoList Component', () => {
     render(<TodoList />)
     
     const todoText = screen.getByText('Créer une Todo List')
+    const todoItem = todoText.closest('li')
     
-    expect(todoText).not.toHaveStyle('text-decoration: line-through')
+    // Vérifier que le todo n'est pas complété initialement
+    expect(todoItem).not.toHaveClass('completed')
     
     await user.click(todoText)
     
-    expect(todoText).toHaveStyle('text-decoration: line-through')
+    // Vérifier que le todo est maintenant complété
+    expect(todoItem).toHaveClass('completed')
     expect(screen.getByText(/Complétées: 2/)).toBeInTheDocument()
   })
 
@@ -58,24 +61,23 @@ describe('TodoList Component', () => {
     const user = userEvent.setup()
     render(<TodoList />)
     
-    const initialTodos = screen.getAllByRole('listitem')
+    const todoToDelete = screen.getByText('Apprendre React')
     const deleteButtons = screen.getAllByLabelText('Supprimer la tâche')
     
     await user.click(deleteButtons[0])
     
-    expect(screen.getAllByRole('listitem')).toHaveLength(initialTodos.length - 1)
-    expect(screen.queryByText('Apprendre React')).not.toBeInTheDocument()
+    expect(todoToDelete).not.toBeInTheDocument()
+    expect(screen.getByText(/Total: 2/)).toBeInTheDocument()
   })
 
   test('shows empty message when no todos', async () => {
     const user = userEvent.setup()
     render(<TodoList />)
     
-    const deleteButtons = screen.getAllByLabelText('Supprimer la tâche')
-    
     // Supprimer tous les todos
-    for (let i = 0; i < deleteButtons.length; i++) {
-      await user.click(screen.getAllByLabelText('Supprimer la tâche')[0])
+    const deleteButtons = screen.getAllByLabelText('Supprimer la tâche')
+    for (const button of deleteButtons) {
+      await user.click(button)
     }
     
     expect(screen.getByText('Aucune tâche pour le moment. Ajoutez-en une !')).toBeInTheDocument()
@@ -86,9 +88,31 @@ describe('TodoList Component', () => {
     const user = userEvent.setup()
     render(<TodoList />)
     
-    const toggleButtons = screen.getAllByLabelText(/Marquer comme/)
-    await user.click(toggleButtons[1])
+    const toggleButtons = screen.getAllByLabelText('Marquer comme terminée')
+    await user.click(toggleButtons[0])
     
     expect(screen.getByText(/Complétées: 2/)).toBeInTheDocument()
+  })
+
+  // Test supplémentaire pour vérifier le compteur
+  test('updates completed count correctly', async () => {
+    const user = userEvent.setup()
+    render(<TodoList />)
+    
+    // Vérifier le compteur initial
+    expect(screen.getByText(/Complétées: 1/)).toBeInTheDocument()
+    
+    // Toggle un todo non complété
+    const todoText = screen.getByText('Créer une Todo List')
+    await user.click(todoText)
+    
+    // Vérifier que le compteur est incrémenté
+    expect(screen.getByText(/Complétées: 2/)).toBeInTheDocument()
+    
+    // Toggle à nouveau pour le remettre à non complété
+    await user.click(todoText)
+    
+    // Vérifier que le compteur est décrémenté
+    expect(screen.getByText(/Complétées: 1/)).toBeInTheDocument()
   })
 })
